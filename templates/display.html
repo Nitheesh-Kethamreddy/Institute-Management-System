@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+{% block extra_css %}
+<style>
+  .table{
+  margin-top:3rem;
+  margin-bottom:3rem;}
+  h1{
+  text-align: center;
+    font-size: 47px;
+    font-family: fangsong;
+}
+</style>
+{% endblock %}
+{% block content %}
+<h1 >welcome to display</h1>
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Place </th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+    <tr>
+      <td>{{ i.id }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.phone }}</td>
+        <td>{{ i.place.city }}</td>
+        <td><a href="{% url 'update' i.id %}" style="text-decoration: none;">update</a></td>
+        <td><a href="{% url 'delete' i.id %}" style="text-decoration: none;">delete</a></td>
+
+    </tr>
+{% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}

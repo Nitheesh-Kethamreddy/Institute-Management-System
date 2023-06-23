@@ -1,0 +1,6 @@
+{% block extra_css %}
+.nav{
+display:inline;
+color:white
+}
+{% endblock %}
